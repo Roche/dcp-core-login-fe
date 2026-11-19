@@ -21,6 +21,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Create an empty .npmrc file if not present so Docker COPY doesn't fail
+      - name: Create empty .npmrc
+        run: touch .npmrc
+        
       # Load the committed file into GITHUB_ENV
       - name: Load environment variables from file
         run: |
