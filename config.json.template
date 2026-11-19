@@ -1,0 +1,5 @@
+{
+  "production": true,
+  "gatewayUrl": "${DCP_GATEWAY_URL}",
+  "privacyPolicyUrl": "${DCP_PRIVACY_POLICY_URL}"
+}

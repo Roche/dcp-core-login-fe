@@ -1,0 +1,5 @@
+{
+  "production": false,
+  "gatewayUrl": "https://api.example.com:8199",
+  "privacyPolicyUrl": "https://www.example.com/privacy-policy"
+}

@@ -1,0 +1,72 @@
+<app-top-loading-bar/>
+<div class="login-container">
+  <div class="login-left-section">
+    <div class="space-left"></div>
+    <div class="login-panel">
+      <div class="login-header">
+        <img class="company-logo" [src]="baseAppPath + 'assets/images/company-logo.png'" alt="Company Logo" />
+        <span class="lang-header_select">
+          <span class="lang-header_select_label">
+            {{"LANGUAGE" | translate}}
+          </span>
+          <button mat-button class="lang-header_select_button" [matMenuTriggerFor]="itemTextMenu">
+            {{translate.currentLang | translate}}
+            <mat-icon class="login-container_language-arrow-down">keyboard_arrow_down</mat-icon>
+            <mat-menu #itemTextMenu="matMenu">
+              <button mat-menu-item *ngFor="let lang of translate.getLangs()" (click)="langChange(lang)"
+                      class="lang-btn">
+                <span [innerHTML]="lang | translate" class=""></span>
+              </button>
+            </mat-menu>
+          </button>
+        </span>
+      </div>
+      <div class="login-title">
+        <h1>
+          {{"SIGN_IN_TO" | translate }}
+          <!-- Inline copy of assets/images/dcp-logo-abbr.svg so the gradient can follow the
+               runtime primary color (an <img> SVG cannot be styled from CSS).
+               Fallback stop colors are the original logo colors. -->
+          <svg class="login-title_logo" xmlns="http://www.w3.org/2000/svg" height="50" width="95"
+               viewBox="0 0 76 40.001" role="img" [attr.aria-label]="'DIGITAL_CLONE_LOGO_ALT' | translate">
+            <defs>
+              <linearGradient id="login-dcp-logo-gradient" x1="-0.356" y1="1" x2="1" y2="1" gradientUnits="objectBoundingBox">
+                <stop offset="0" style="stop-color: var(--dcp-branding-primary-light, #3883f2)"/>
+                <stop offset="0.72" style="stop-color: var(--dcp-branding-primary-color, #1745c5)"/>
+                <stop offset="1" style="stop-color: var(--dcp-branding-primary-color, #1745c5)"/>
+              </linearGradient>
+            </defs>
+            <g transform="translate(0 6.623)">
+              <path fill="url(#login-dcp-logo-gradient)" transform="translate(0 -12.698)"
+                    d="M25.614,33.623l1.524,1.721.138.147a13.34,13.34,0,0,0,18.813.06l-4.395-5.056a6.671,6.671,0,0,1-9.632.34l-1.972-2.269ZM52.792,16.089a13.508,13.508,0,0,0-4.39,9.829l0,20.159h6.676V26.12c.224-4.938,3.731-6.693,6.676-6.693s6.456,1.757,6.676,6.7a6.72,6.72,0,0,1-10.015,5.707v7.155a13.372,13.372,0,0,0,9.675-1.231A13.215,13.215,0,0,0,75.1,26.015l0-.1a13.444,13.444,0,0,0-22.307-9.829M6.676,12.7v6.676h3.338a6.687,6.687,0,0,1,5.693,3.173,6.1,6.1,0,0,1,.385.736l.264.58,4.709-5.309a13.474,13.474,0,0,0-2.625-2.863A13.712,13.712,0,0,0,9.734,12.7Zm20.6,3.911L14.669,30.834a6.631,6.631,0,0,1-4.655,1.891H6.676V19.407H0V39.4H10.014a13.264,13.264,0,0,0,9.441-3.911L32.062,21.265a6.675,6.675,0,0,1,9.31,0l.311.351,4.4-5.076a13.351,13.351,0,0,0-18.813.068"/>
+            </g>
+          </svg>
+        </h1>
+      </div>
+
+      <div class="login-main">
+        <div>
+          <div class="cube-loader" *ngIf="!ssoLink">
+            <app-cube-loader></app-cube-loader>
+          </div>
+          <div class="login-form-container" *ngIf="ssoLink">
+            <p>{{'REDIRECT_TO_SSO_MESSAGE' | translate}}</p>
+            <button mat-raised-button color="primary" [innerHTML]="'SIGN_IN_SSO' | translate"
+                    [disabled]="isLoading$.value" (click)="signInSSO()" class="sign-in-btn">
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <h6>
+          <a (click)="openBottomSheet()" class="cursor-pointer">{{"VERSIONS" | translate}}</a>
+        </h6>
+        <h6 class="privacy-policy"><a href="{{privacyPolicyUrl}}" target="blank">{{'PRIVACY_POLICY'
+          | translate}}</a></h6>
+      </div>
+    </div>
+  </div>
+
+  <div class="login-right-section login-logo" [style.background-image]="loginLogoBackground"></div>
+
+</div>

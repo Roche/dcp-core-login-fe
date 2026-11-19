@@ -1,0 +1,20 @@
+{
+  "DIGITAL_CLONE_LOGO_ALT": "Data Computation Platform",
+  "TYPE": "Typ",
+  "LANGUAGE": "Sprache",
+  "SIGN_IN_TO": "Sign in to",
+  "en": "English",
+  "de": "Deutsch",
+  "VALIDATIONS": {
+    "CHROME_BROWSER_NOTIFICATION": "Ihr Browser wird nicht unterstützt.\n\n Wir empfehlen, die aktuellste Version von Google Chrome zu verwenden."
+  },
+  "SIGN_IN_SSO": "Mit der Roche ID anmelden",
+  "NO_SYSTEM_PERMISSION": "Fehlende Zugriffsberechtigungen",
+  "GO_BACK_TO_LOGIN": "Zurück zum Login",
+  "REDIRECT_TO_SSO_MESSAGE": "Ich erkenne an, dass ich durch meine Anstellung oder vertragliche Vereinbarung mit Roche an Vertraulichkeitsverpflichtungen gebunden bin, die im Zusammenhang mit meinem Zugang zu vertraulichen Informationen, einschließlich DCP und dessen Inhalten, stehen. Durch das Betreten von DCP bestätige ich, dass ich verstehe, dass meine Aktivitäten innerhalb von DCP gemäß den geltenden lokalen Gesetzen überwacht werden können und dass alle Inhalte und Passwörter vertrauliche Informationen sind. Unbefugte Offenlegung oder Nutzung solcher vertraulichen Informationen kann disziplinarische Maßnahmen, einschließlich der Beendigung meiner Anstellung oder Dienstleistungen und/oder rechtliche Schritte gemäß dem lokalen Recht nach sich ziehen.",
+  "VERSIONS": "Plattformversionen",
+  "PRIVACY_POLICY": "Privacy Policy",
+  "FE_VERSIONS": "Plattformversionen",
+  "MODULES_TEXT": "Module",
+  "BE_VERSIONS": "Serverversionen"
+}

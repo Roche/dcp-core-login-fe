@@ -1,0 +1,8 @@
+<mat-progress-bar mode="indeterminate"
+                  color="primary"
+                  class="progress-bar" *ngIf="!noGuid"></mat-progress-bar>
+
+<div class="sso-empty-state" *ngIf="noGuid">
+  <h3>{{'NO_SYSTEM_PERMISSION' | translate}}</h3>
+  <button mat-raised-button color="primary" (click)="goToLogin()">{{'GO_BACK_TO_LOGIN' | translate}}</button>
+</div>

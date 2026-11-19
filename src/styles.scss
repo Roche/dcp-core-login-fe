@@ -1,0 +1,9 @@
+@import "@open-dcp/styles";
+@import "@open-dcp/angular-styles";
+
+// Previously provided by Bootstrap's reboot; without it the default 8px body margin
+// makes the 100vh login layout scroll.
+body {
+  margin: 0;
+}
+

@@ -1,0 +1,104 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "digital-clone-fe-login": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-builders/custom-webpack:browser",
+          "options": {
+            "outputPath": "dist",
+            "index": "src/index.html",
+            "main": "src/main.single-spa.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "src/assets/",
+                "output": "/assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/translations/",
+                "output": "/assets/translations/"
+              },
+              {
+                "glob": "**/*",
+                "input": "module-settings/",
+                "output": "/"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src/",
+                "output": "/"
+              },
+              {
+                "glob": "config.json",
+                "input": "./",
+                "output": "/"
+              }
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": [],
+            "customWebpackConfig": {
+              "path": "./extra-webpack.config.js"
+            }
+          },
+          "configurations": {
+            "production": {
+              "optimization": false,
+              "buildOptimizer": true,
+              "aot": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "fileReplacements": []
+            },
+            "local": {
+              "optimization": false,
+              "buildOptimizer": false,
+              "aot": false,
+              "outputHashing": "none",
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": false,
+              "fileReplacements": []
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-builders/custom-webpack:dev-server",
+          "options": {
+            "browserTarget": "digital-clone-fe-login:build",
+            "port": 4200,
+            "liveReload": false
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "digital-clone-fe-login:build:local"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "digital-clone-fe-login:build"
+          }
+        }
+      }
+    }
+  }
+}
+
+

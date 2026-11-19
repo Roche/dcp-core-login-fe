@@ -1,0 +1,48 @@
+<div class="versions-page">
+
+  <h5 class="section-title">{{"FE_VERSIONS" | translate}}</h5>
+  <div class="version-holder" >
+    <div class="version-item" *ngFor="let module of currentModules">
+      <span class="color-roche-gray">{{module}}:</span>
+      {{ currentVersions[module] }}
+    </div>
+  </div>
+
+  <h5 class="section-title">{{"BE_VERSIONS" | translate}}</h5>
+  <div class="version-holder" >
+    <div class="version-item" *ngFor="let module of BEVersions">
+      <span class="color-roche-gray">{{ module['Name']  | translate }}:</span>
+      {{ module['Version'] }}
+    </div>
+  </div>
+
+  <h5 class="section-title section-title-spaced">{{"CALCULATION_NODE_VERSIONS" | translate}}</h5>
+  <div class="version-holder version-holder-spaced">
+    <div class="version-item site-item" *ngFor="let rSite of rVersions">
+        <h4>{{rSite.SiteName}}</h4>
+
+        <div *ngFor="let module of rSite.Modules">
+          <span class="module-entry">
+            <span class="color-roche-gray">{{ 'MODULES_TEXT' | translate }}:</span>
+            {{ module.ModuleName }},
+          </span>
+
+          <span class="module-entry" *ngIf="module.Type">
+            <span class="color-roche-gray">{{ 'TYPE' | translate }}:</span>
+            {{ module.Type}},
+          </span>
+
+          <span class="module-entry" *ngIf="module.NodeVersion">
+            <span class="color-roche-gray">{{ 'NODE' | translate }}:</span>
+            {{ module.NodeVersion}},
+          </span>
+
+          <span class="module-entry" *ngIf="module.PackageVersion">
+            <span class="color-roche-gray">{{ 'PACKAGE_TEXT' | translate }}:</span>
+            {{ module.PackageVersion }}
+          </span>
+        </div>
+    </div>
+  </div>
+
+</div>

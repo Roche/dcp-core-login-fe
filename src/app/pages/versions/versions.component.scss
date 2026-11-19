@@ -1,0 +1,95 @@
+// Scoped replacements for the Bootstrap rules this sheet relied on.
+:host {
+  display: block;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// Bootstrap reboot heading defaults
+h4,
+h5 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+// Former Bootstrap `container-fluid pt-3`
+.versions-page {
+  width: 100%;
+  padding: 1rem 15px 0;
+}
+
+.section-title {
+  margin-left: -15px;
+}
+
+// Former Bootstrap `mt-3`
+.section-title-spaced {
+  margin-top: 1rem;
+}
+
+// Former Bootstrap `row mb-2`
+.version-holder {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px 0.5rem;
+  // Values and site names (h4) follow the runtime primary color; #0066CC is the original/default.
+  color: var(--dcp-branding-primary-color, #0066CC);
+  font-size: 12px;
+
+  // Labels ("API Service:", "Module:", ...): keep the original Login dark navy.
+  // The shared package defines .color-roche-gray as light grey (#aaa).
+  .color-roche-gray {
+    color: #132133;
+  }
+}
+
+// Former Bootstrap `mt-2`
+.version-holder-spaced {
+  margin-top: 0.5rem;
+}
+
+// Former Bootstrap `pl-1 pr-1 col-sm-12 col-md-6 col-lg-4`
+.version-item {
+  position: relative;
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding: 0 0.25rem;
+
+  @media (min-width: 768px) {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  @media (min-width: 992px) {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+}
+
+// Former Bootstrap `mb-3`
+.site-item {
+  margin-bottom: 1rem;
+}
+
+// Former `col-lg-4 p-0 m-0` on inline spans – effectively plain inline text.
+// Must stay inline so the space after each comma is preserved.
+.module-entry {
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+
